@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"a58856314c054b94","type":"file","file":"英语/大作文/英语大作文功能句.md","x":-360,"y":-260,"width":400,"height":400},
+		{"id":"1dd1990632a5e4bc","type":"text","text":"","x":140,"y":-260,"width":340,"height":400},
+		{"id":"4fea2317ac95d257","type":"text","text":"","x":140,"y":220,"width":386,"height":400}
+	],
+	"edges":[
+		{"id":"3199506d6cdd7531","fromNode":"a58856314c054b94","fromSide":"right","toNode":"1dd1990632a5e4bc","toSide":"left"},
+		{"id":"3d375aefa7c964ad","fromNode":"a58856314c054b94","fromSide":"right","toNode":"4fea2317ac95d257","toSide":"left"}
+	]
+}
