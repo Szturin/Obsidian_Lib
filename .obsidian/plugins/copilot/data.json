@@ -344,8 +344,7 @@
       "provider": "google",
       "enabled": true,
       "isBuiltIn": true,
-      "isEmbeddingModel": true,
-      "enableCors": true
+      "isEmbeddingModel": true
     },
     {
       "name": "azure-openai",
