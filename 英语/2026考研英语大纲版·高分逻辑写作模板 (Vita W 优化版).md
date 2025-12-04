@@ -48,7 +48,15 @@ Conspicuously, the picture aims to convey that [主题词：eg:[perseverance/det
 **This excerpt reveals that** **[总结材料观点]**, on the grounds that **[改写材料中的原因]**. **From my perspective, I** [concur with/am neutral about] **such a standpoint**.
 
 ---
+### 【类型 D：图画+图表作文 (混合型)】
 
+**As is vividly depicted in the picture,** [地点状语, e.g., in front of the screen] stands/sits **[核心人物]**, who is **[伴随动作 (v-ing), e.g., indulging in online games]**. This visual image highlights the **[图画主题词, e.g., prevalence of internet addiction]**.
+
+**Coincidentally, it aligns with the chart that** **[一句话概括图表描述的对象, e.g., shows the time spent online]**1. Specifically, the [number/percentage] of **[图表主要对象]** soared from the **nadir** of [最低值] in [年份] to the **zenith** of [最高值] in [年份]2.
+
+**Obviously, the combined message is to emphasize that [一句话总结图画和图表共同揭示的主题]**.
+
+---
 ## ¶ 第二段：核心论证 (Argumentation)
 
 ### 1. 总起句 (Topic Sentence)
