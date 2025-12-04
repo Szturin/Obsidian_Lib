@@ -115,3 +115,5 @@ In my opinion, **[主题词]** serves as a strong **shot in the arm** for [benef
 | **负面** | put a **headwind** on / deliver a **blow** to | 构成阻力 / 重创 |
 | **极值** | **nadir** / **zenith**                        | 最低点 / 最高点 |
 [[英语作文语料库]]
+
+
