@@ -97,5 +97,11 @@ In my opinion, **[主题词]** serves as a strong **shot in the arm** for [benef
 >重要功能句汇总：[[英语大作文功能句]]
 
 
+```mermaid
+graph TD
 
+语料库 --> 大作文模板
+功能句 --> 大作文模板
+主题词 --> 大作文模板
+```
 
