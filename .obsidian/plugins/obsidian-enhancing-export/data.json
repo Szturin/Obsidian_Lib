@@ -58,5 +58,6 @@
   "showExportProgressBar": true,
   "customDefaultExportDirectory": {
     "win32": "S:\\0_Obsidian\\output_file_pdf"
-  }
+  },
+  "lastEditName": "PDF"
 }
