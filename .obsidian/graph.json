@@ -18,7 +18,7 @@
       "query": "tag:#考研政治  ",
       "color": {
         "a": 1,
-        "rgb": 14725458
+        "rgb": 10950166
       }
     },
     {
@@ -29,16 +29,16 @@
       }
     }
   ],
-  "collapse-display": true,
+  "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1.26114310816087,
+  "textFadeMultiplier": -1.7,
+  "nodeSizeMultiplier": 2.02670831706365,
   "lineSizeMultiplier": 1,
-  "collapse-forces": true,
-  "centerStrength": 0.518713248970312,
+  "collapse-forces": false,
+  "centerStrength": 0.424443576727841,
   "repelStrength": 10,
   "linkStrength": 1,
-  "linkDistance": 250,
-  "scale": 1.0000000000000029,
-  "close": true
+  "linkDistance": 431,
+  "scale": 0.40614967832519044,
+  "close": false
 }
