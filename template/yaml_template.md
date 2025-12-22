@@ -1,9 +1,6 @@
----
 
 ---
----
-tags: 
+tags:
 class:
-notes:
 
 ---
