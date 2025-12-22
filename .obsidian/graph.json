@@ -6,7 +6,29 @@
   "hideUnresolved": true,
   "showOrphans": false,
   "collapse-color-groups": false,
-  "colorGroups": [],
+  "colorGroups": [
+    {
+      "query": "tag:#考研英语  ",
+      "color": {
+        "a": 1,
+        "rgb": 16749716
+      }
+    },
+    {
+      "query": "tag:#考研政治  ",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
+      }
+    },
+    {
+      "query": "tag:#英语  ",
+      "color": {
+        "a": 1,
+        "rgb": 16679411
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": true,
   "textFadeMultiplier": 0,
@@ -17,6 +39,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 1.000000000000001,
-  "close": false
+  "scale": 1.0000000000000029,
+  "close": true
 }
