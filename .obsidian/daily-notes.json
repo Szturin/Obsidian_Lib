@@ -1,3 +1,5 @@
 {
-  "folder": "diary"
+  "folder": "diary",
+  "template": "template/日记模板",
+  "autorun": true
 }
