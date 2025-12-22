@@ -1,8 +1,7 @@
 ---
 tags:
-  - 数学
-  - 考研数学
-  - obsidian入门
+  - 数学/考研数学
+  - obsidian/obsidian入门
 aliases:
 topic:
 date:
