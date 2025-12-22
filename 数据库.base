@@ -8,3 +8,5 @@ views:
       - file.mtime
     columnSize:
       note.tags: 330
+  - type: list
+    name: 视图
