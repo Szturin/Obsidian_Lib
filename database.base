@@ -1,0 +1,14 @@
+views:
+  - type: table
+    name: 基本
+    order:
+      - file.name
+      - file.ctime
+      - file.mtime
+      - file.tags
+    columnSize:
+      file.name: 331
+      file.ctime: 273
+      file.mtime: 258
+  - type: table
+    name: 视图
