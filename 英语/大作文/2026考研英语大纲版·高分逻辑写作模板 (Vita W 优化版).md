@@ -5,13 +5,9 @@ tags:
   - 英语写作
 ---
 
-
 > **适用说明：** 本模板基于 Vita W 的逻辑公式优化，严格对标考研英语大纲，适用于英语一（图画/图画/材料）及英语二（图表/图画）
 
 ---
-
-
-
 ## 核心逻辑公式 (The Logic Formula)
 
 $$
@@ -94,33 +90,12 @@ In my opinion, **[主题词]** serves as a strong **shot in the arm** for [benef
 **Only in this way can we** ensure a promising future.
 
 ---
-附录：语料库 (Word Bank)
+
+> [!TIP] 关联链接
+>本模板中的语料内容：[[英语作文语料库]]
+>主题词结合记忆：[[考研英语写作主题词一页纸]]
+>重要功能句汇总：[[英语大作文功能句]]
 
 
-### 1. WHEN (时代背景)
-
-| 英文表达                                | 中文含义       | 适用话题         |
-| :-------------------------------------- | :------------- | :--------------- |
-| **In such a highly digitalized era**    | 高度数字化时代 | 互联网、AI、手机 |
-| **In such a highly commercialized era** | 高度商业化时代 | 消费、广告、追星 |
-| **In such a highly competitive era**    | 高度竞争时代   | 就业、考研、内卷 |
-| **In such a highly globalized era**     | 高度全球化时代 | 文化交流         |
-
-### 2. WHO (具体身份)
-
-| 场景     | 英文表达                                                    |
-| :------- | :---------------------------------------------------------- |
-| **校园** | Freshmen (大一新生), Seniors (大四), Postgraduates (研究生) |
-| **社会** | Jobseekers (求职者), Netizens (网民), Consumers (消费者)    |
-| **家庭** | Empty nesters (空巢老人), Gen Z (Z 世代)                    |
-
-### 3. Logic Verbs (逻辑动词)
-
-| 类型     | 英文表达                                          | 含义        |
-| :----- | :-------------------------------------------- | :-------- |
-| **正面** | serve as a **booster** / **shot in the arm**  | 助推器 / 强心针 |
-| **负面** | put a **headwind** on / deliver a **blow** to | 构成阻力 / 重创 |
-| **极值** | **nadir** / **zenith**                        | 最低点 / 最高点 |
-[[英语作文语料库]]
 
 
