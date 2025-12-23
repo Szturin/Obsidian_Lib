@@ -14,5 +14,5 @@ c & d
 \end{vmatrix}=ad-bc
 $$
 $$
-w
+
 $$
