@@ -4,7 +4,7 @@ tags:
   - obsidian/obsidian入门
 aliases:
 topic:
-date:
+date: "{{date:YYYY-MM-DD}} {{time:HH:MM}}"
 type:
 ---
 
