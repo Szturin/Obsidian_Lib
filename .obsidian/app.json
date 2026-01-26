@@ -9,5 +9,6 @@
   "attachmentFolderPath": "./attachments",
   "userIgnoreFilters": [
     "copilot/"
-  ]
+  ],
+  "openBehavior": "daily"
 }
