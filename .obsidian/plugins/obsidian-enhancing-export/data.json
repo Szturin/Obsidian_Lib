@@ -16,7 +16,9 @@
       "name": "Typst"
     },
     {
-      "name": "PDF"
+      "name": "PDF",
+      "openExportedFileLocation": true,
+      "openExportedFile": true
     },
     {
       "name": "Word (.docx)"
