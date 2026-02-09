@@ -3,18 +3,18 @@
   "title": "你好",
   "titleGenerationStatus": "failed",
   "createdAt": 1770647195129,
-  "updatedAt": 1770647840056,
-  "lastResponseAt": 1770647840056,
+  "updatedAt": 1770647910038,
+  "lastResponseAt": 1770647910038,
   "sessionId": "11443264-fd17-4126-9eb4-cc47eb9786bb",
   "sdkSessionId": "11443264-fd17-4126-9eb4-cc47eb9786bb",
   "currentNote": "diary/2026-02-09.md",
   "usage": {
     "model": "opus",
     "inputTokens": 3,
-    "cacheCreationInputTokens": 876,
-    "cacheReadInputTokens": 72351,
+    "cacheCreationInputTokens": 1262,
+    "cacheReadInputTokens": 73227,
     "contextWindow": 200000,
-    "contextTokens": 73230,
+    "contextTokens": 74492,
     "percentage": 37
   },
   "subagentData": {
