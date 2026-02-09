@@ -3,18 +3,496 @@
   "title": "你好",
   "titleGenerationStatus": "failed",
   "createdAt": 1770647195129,
-  "updatedAt": 1770647502818,
-  "lastResponseAt": 1770647502818,
+  "updatedAt": 1770647840056,
+  "lastResponseAt": 1770647840056,
   "sessionId": "11443264-fd17-4126-9eb4-cc47eb9786bb",
   "sdkSessionId": "11443264-fd17-4126-9eb4-cc47eb9786bb",
   "currentNote": "diary/2026-02-09.md",
   "usage": {
     "model": "opus",
-    "inputTokens": 1,
-    "cacheCreationInputTokens": 580,
-    "cacheReadInputTokens": 42920,
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 876,
+    "cacheReadInputTokens": 72351,
     "contextWindow": 200000,
-    "contextTokens": 43501,
-    "percentage": 22
+    "contextTokens": 73230,
+    "percentage": 37
+  },
+  "subagentData": {
+    "toolu_013dzcpD4LWNdsGCLWyizoLw": {
+      "id": "toolu_013dzcpD4LWNdsGCLWyizoLw",
+      "description": "探索仓库完整目录结构",
+      "prompt": "请帮我彻底探索这个 Obsidian 仓库的结构。这是一个考研复习资料库。\n\n需要做的事情：\n1. 列出每个顶级文件夹的子目录和文件数量\n2. 读取每个子目录中的代表性 .md 文件（每个文件夹 1-2 个），了解内容主题\n3. 统计各文件夹下的 .md 文件数量\n\n需要探索的顶级目录：\n- 0_数学/\n- diary/\n- 英语/\n- 政治/\n- 专业课/\n- 模拟电子技术/\n- 数字电子技术/\n- 数字信号处理/\n- template/\n- Excalidraw/\n- My Blog/\n- copilot/\n\nthoroughness: very thorough\n\n请返回一个结构化的报告，格式如下：\n```\n目录名/\n├── 子目录或文件列表\n├── .md 文件数量：X\n└── 内容主题：简要描述\n```",
+      "status": "completed",
+      "toolCalls": [
+        {
+          "id": "toolu_01BPrfKdTQPN7MFnps7wK7De",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\" && find . -maxdepth 1 -type d | sort",
+            "description": "列出顶级目录"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": ".\n./.claude\n./.git\n./.obsidian\n./.trash\n./0_数学\n./copilot\n./diary\n./Excalidraw\n./My Blog\n./template\n./模拟电子技术\n./数字电子技术\n./数字信号处理\n./英语\n./政治\n./专业课"
+        },
+        {
+          "id": "toolu_01GGuk2wFyhv9Fb9btZfhWyF",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\" && for dir in \"0_数学\" \"diary\" \"英语\" \"政治\" \"专业课\" \"模拟电子技术\" \"数字电子技术\" \"数字信号处理\" \"template\" \"Excalidraw\" \"My Blog\" \"copilot\"; do echo \"=== $dir ===\"; find \"$dir\" -maxdepth 1 -type f -o -maxdepth 1 -type d | head -20; echo \"MD files: $(find \"$dir\" -name \"*.md\" | wc -l)\"; echo; done",
+            "description": "获取所有目录的子项和 md 文件数量"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "=== 0_数学 ===\n0_数学\n0_数学/数一重点总结(1).pdf\n0_数学/数学Latex公式.md\n0_数学/未命名.canvas\nMD files: 1\n\n=== diary ===\ndiary\ndiary/2025-12-23.md\ndiary/2025-12-24.md\ndiary/2025-12-25.md\ndiary/2025-12-27.md\ndiary/2025-12-29.md\ndiary/2025-12-31.md\ndiary/2026-01-01.md\ndiary/2026-01-26.md\ndiary/2026-01-27.md\ndiary/2026-01-28.md\ndiary/2026-01-30.md\ndiary/2026-02-02.md\ndiary/2026-02-04.md\ndiary/2026-02-06.md\ndiary/2026-02-07.md\ndiary/2026-02-09.md\nMD files: 16\n\n=== 英语 ===\n英语\n英语/大作文\n英语/大纲材料直播带练.pdf\n英语/小作文\n英语/练习稿\n英语/考研英语写作主题词一页纸.md\n英语/考研英语：美国历史文化背景与阅读逻辑大观.md\n英语/英语写作方法论.md\n英语/阅读\nMD files: 20\n\n=== 政治 ===\n政治\n政治/26考研肖四马原分析题·精简背诵表 (纯净Markdown版).md\n政治/《一页纸》A4框格打印（居中）（完整版）.pdf\n政治/政治一页纸.canvas\nMD files: 1\n\n=== 专业课 ===\n专业课\n专业课/811+821辅导讲义_250708_010850.pdf\n专业课/信号与系统总结\nMD files: 1\n\n=== 模拟电子技术 ===\n模拟电子技术\nMD files: 0\n\n=== 数字电子技术 ===\n数字电子技术\n数字电子技术/未命名.md\nMD files: 1\n\n=== 数字信号处理 ===\n数字信号处理\n数字信号处理/DSP知识体系.md\n数字信号处理/数字信号处理的基本概念.md\n数字信号处理/数字信号处理的基本概念.pdf\n数字信号处理/未命名.md\nMD files: 3\n\n=== template ===\ntemplate\ntemplate/yaml_template.md\ntemplate/文字提纲.md\ntemplate/日记模板.md\ntemplate/笔记模板.md\nMD files: 4\n\n=== Excalidraw ===\nExcalidraw\nMD files: 0\n\n=== My Blog ===\nMy Blog\nMD files: 0\n\n=== copilot ===\ncopilot\ncopilot/copilot-conversations\ncopilot/copilot-custom-prompts\ncopilot/memory\nMD files: 21"
+        },
+        {
+          "id": "toolu_019cdkhAtP9PzV2qi4PNHupe",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\" && for dir in \"0_数学\" \"英语\" \"政治\" \"专业课\" \"数字信号处理\" \"template\" \"copilot\"; do echo \"=== $dir 详细结构 ===\"; ls -la \"$dir\" 2>/dev/null | head -30; echo; done",
+            "description": "获取详细目录结构"
+          },
+          "status": "blocked",
+          "isExpanded": false,
+          "result": "Access denied: Command path \"/dev/null\" is outside the vault. Agent is restricted to vault directory only."
+        },
+        {
+          "id": "toolu_01XKev9A7QhGnTLfEGauRWv9",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\0_数学\" && ls -la",
+            "description": "列出 0_数学 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 37633\ndrwxr-xr-x 1 123 197121        0 12月 23 01:46 .\ndrwxr-xr-x 1 123 197121        0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121      360 12月 24 18:01 数学Latex公式.md\n-rw-r--r-- 1 123 197121 38520259 11月 28 02:28 数一重点总结(1).pdf\n-rw-r--r-- 1 123 197121        2 11月 28 02:28 未命名.canvas"
+        },
+        {
+          "id": "toolu_01P1LN5uQTv5vLeGZcX9Ez88",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\" && ls -la",
+            "description": "列出 英语 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 10744\ndrwxr-xr-x 1 123 197121        0 12月 23 02:24 .\ndrwxr-xr-x 1 123 197121        0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121 10898767 12月 16 19:15 大纲材料直播带练.pdf\ndrwxr-xr-x 1 123 197121        0 12月 22 22:57 大作文\n-rw-r--r-- 1 123 197121     7633 12月 23 02:38 考研英语：美国历史文化背景与阅读逻辑大观.md\n-rw-r--r-- 1 123 197121     5832 12月 23 02:43 考研英语写作主题词一页纸.md\ndrwxr-xr-x 1 123 197121        0 12月 23 02:01 练习稿\ndrwxr-xr-x 1 123 197121        0 12月 23 02:00 小作文\n-rw-r--r-- 1 123 197121    65526 11月 29 09:19 英语写作方法论.md\ndrwxr-xr-x 1 123 197121        0 11月 29 18:47 阅读"
+        },
+        {
+          "id": "toolu_01A3p8iZ6fEhJXkTD5M1EQfo",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\政治\" && ls -la",
+            "description": "列出 政治 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 42960\ndrwxr-xr-x 1 123 197121        0 12月 23 02:29 .\ndrwxr-xr-x 1 123 197121        0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121 43966255 12月 11 13:28 《一页纸》A4框格打印（居中）（完整版）.pdf\n-rw-r--r-- 1 123 197121     8826 12月 23 02:40 26考研肖四马原分析题·精简背诵表 (纯净Markdown版).md\n-rw-r--r-- 1 123 197121     1129 12月 11 13:39 政治一页纸.canvas"
+        },
+        {
+          "id": "toolu_01FesT2NjPxdjMuqNZNQAv8o",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\专业课\" && ls -la",
+            "description": "列出 专业课 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 95624\ndrwxr-xr-x 1 123 197121        0 12月 30 01:27 .\ndrwxr-xr-x 1 123 197121        0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121 97907482 11月 28 21:08 811+821辅导讲义_250708_010850.pdf\ndrwxr-xr-x 1 123 197121        0 12月 30 01:31 信号与系统总结"
+        },
+        {
+          "id": "toolu_01FMxkjbYTfuk7LWUsBbduzE",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\数字信号处理\" && ls -la",
+            "description": "列出 数字信号处理 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 697\ndrwxr-xr-x 1 123 197121      0  2月  9 22:31 .\ndrwxr-xr-x 1 123 197121      0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121   6847  2月  9 22:31 DSP知识体系.md\n-rw-r--r-- 1 123 197121   6436  1月 27 00:10 数字信号处理的基本概念.md\n-rw-r--r-- 1 123 197121 685910  1月 27 00:12 数字信号处理的基本概念.pdf\n-rw-r--r-- 1 123 197121    594  2月  7 19:02 未命名.md"
+        },
+        {
+          "id": "toolu_01DyhCwqbz4r6NkJ7E8MggTG",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\template\" && ls -la",
+            "description": "列出 template 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 12\ndrwxr-xr-x 1 123 197121   0 12月 23 01:41 .\ndrwxr-xr-x 1 123 197121   0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121  22 12月 23 01:45 yaml_template.md\n-rw-r--r-- 1 123 197121  79 12月 23 01:53 笔记模板.md\n-rw-r--r-- 1 123 197121  95 12月 23 01:53 日记模板.md\n-rw-r--r-- 1 123 197121 111 12月 23 01:34 文字提纲.md"
+        },
+        {
+          "id": "toolu_01CAbpfP5y2mtFLatbYQW7qL",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\copilot\" && find . -type f -name \"*.md\" | head -25",
+            "description": "列出 copilot 下的 md 文件"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "./copilot-conversations/As_is_vividly_depicted_in_the_picture,_地点状语,_e.g.,_in@20251204_193146.md\n./copilot-conversations/hi@20251128_121657.md\n./copilot-conversations/你好，请问我的谷歌账号名称是什么@20251128_121741.md\n./copilot-conversations/你能识别图像嘛@20251201_114542.md\n./copilot-conversations/帮我总结阅读方法论@20251129_185856.md\n./copilot-conversations/请问我如何快速入门latex，@20251222_223142.md\n./copilot-conversations/阅读我的小作文文件，整理所有类型小作文模板@20251129_083154.md\n./copilot-custom-prompts/Emojify.md\n./copilot-custom-prompts/Explain like I am 5.md\n./copilot-custom-prompts/Fix grammar and spelling.md\n./copilot-custom-prompts/Generate glossary.md\n./copilot-custom-prompts/Generate table of contents.md\n./copilot-custom-prompts/Make longer.md\n./copilot-custom-prompts/Make shorter.md\n./copilot-custom-prompts/Remove URLs.md\n./copilot-custom-prompts/Rewrite as tweet thread.md\n./copilot-custom-prompts/Rewrite as tweet.md\n./copilot-custom-prompts/Simplify.md\n./copilot-custom-prompts/Summarize.md\n./copilot-custom-prompts/Translate to Chinese.md\n./memory/Recent Conversations.md"
+        },
+        {
+          "id": "toolu_01MBxHnpc8urkA1VVSxyssag",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\0_数学\\数学Latex公式.md"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags:\n     3→  - 数学/考研数学\n     4→  - obsidian/obsidian入门\n     5→aliases:\n     6→topic:\n     7→date:\n     8→type:\n     9→---\n    10→\n    11→\n    12→$E = mc^2$\n    13→\n    14→$x^{10}$\n    15→\n    16→$\\alpha\\cdot\\beta$\n    17→$\\alpha\\pm\\beta$\n    18→$\\frac{A}{B}$\n    19→$A\\neq B$\n    20→$X\\leq Y$\n    21→$X\\geq Y$\n    22→$x\\times y$\n    23→$x\\div y$\n    24→$\\sqrt{x}$\n    25→$X\\approx Y$\n    26→$\\forall X \\in R$\n    27→$\\exists X \\subset A$\n    28→$f(x_1,x_2,x_3)=x^2_1 +x^2_2+x^2_3 + 2x_1x_2 + 2x_2x_3$\n    29→\n    30→\n    31→\n    32→\n    33→\n    34→\n    35→\n    36→\n    37→\n    38→\n    39→\n    40→\n    41→\n    42→\n    43→\n    44→\n    45→\n    46→\n    47→\n    48→\n    49→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01SbVF3YuwWtkjV8jyvWMiA1",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\英语\\考研英语写作主题词一页纸.md"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags:\n     3→  - 英语/考研英语/考研英语写作\n     4→---\n     5→\n     6→## 1. 人生哲理 (Life Philosophy)\n     7→\n     8→- **seek meaning in life** - 寻求人生意义\n     9→    \n    10→- **face adversity with courage** - 勇敢面对逆境\n    11→    \n    12→- **transcend self-limitation** - 超越自我限制\n    13→    \n    14→- **make informed decisions** - 做出明智的决定\n    15→    \n    16→- **bridge theory with practical application** - 学以致用\n    17→    \n    18→- **pursue spiritual fulfillment** - 追求精神满足\n    19→    \n    20→- **learn from failure** - 从失败中吸取经验\n    21→    \n    22→- **fulfill one's potential** - 充分发挥个人潜能\n    23→    \n    24→\n    25→## 2. 文化价值 (Cultural Values)\n    26→\n    27→- **promote cross-cultural interactions** - 促进跨文化互动\n    28→    \n    29→- **strengthen cultural confidence** - 增强文化自信\n    30→    \n    31→- **integrate tradition and modernity** - 融合传统与现代\n    32→    \n    33→- **protect intangible cultural heritages** - 保护非物质文化遗产\n    34→    \n    35→- **promote cultural diversity** - 促进文化多样性\n    36→    \n    37→- **shape national image** - 塑造国家形象\n    38→    \n    39→- **inherit excellent traditional culture** - 传承优秀的传统文化\n    40→    \n    41→\n    42→## 3. 道德修养 (Moral Cultivation)\n    43→\n    44→- **cultivate noble virtues** - 培养高尚美德\n    45→    \n    46→- **adhere to honesty and integrity** - 坚持诚实守信\n    47→    \n    48→- **fulfill social responsibility** - 履行社会责任\n    49→    \n    50→- **uphold fairness and justice** - 维护公正公平\n    51→    \n    52→- **align personal gain with collective well-being** - 兼顾个人集体利益\n    53→    \n    54→- **lead by example** - 以身作则\n    55→    \n    56→- **shoulder moral obligation** - 承担道德义务\n    57→    \n    58→\n    59→## 4. 两代关系 (Intergenerational Relations)\n    60→\n    61→- **bridge the generation gap** - 弥合代沟\n    62→    \n    63→- **respect the elderly and care for the young** - 尊老爱幼\n    64→    \n    65→- **prevent communication breakdown** - 避免沟通障碍\n    66→    \n    67→- **share family responsibilities** - 共同承担家庭责任\n    68→    \n    69→- **create a harmonious family atmosphere** - 营造和谐家庭氛围\n    70→    \n    71→- **understand generational differences** - 理解代际差异\n    72→    \n    73→- **pass down family traditions** - 传承家风家训\n    74→    \n    75→\n    76→## 5. 科技网络 (Technology & Internet)\n    77→\n    78→- **embrace the digital era** - 拥抱数字时代\n    79→    \n    80→- **apply technological innovation** - 运用科技创新\n    81→    \n    82→- **bridge the digital divide** - 缩小数字鸿沟\n    83→    \n    84→- **protect personal privacy** - 保护个人隐私\n    85→    \n    86→- **regulate online behavior** - 规范网络行为\n    87→    \n    88→- **avoid prolonged screen time** - 避免长时间的屏幕时间\n    89→    \n    90→- **enhance information security** - 提高信息安全\n    91→    \n    92→- **combat cybercrime** - 打击网络犯罪\n    93→    \n    94→\n    95→## 6. 生活环保 (Environment & Lifestyle)\n    96→\n    97→- **advocate sustainable living** - 倡导可持续生活\n    98→    \n    99→- **reduce carbon emissions** - 减少碳排放\n   100→    \n   101→- **develop circular economy** - 发展循环经济\n   102→    \n   103→- **raise environmental awareness** - 提高环保意识\n   104→    \n   105→- **safeguard the natural environment** - 保护自然环境\n   106→    \n   107→- **promote green travel** - 推广绿色出行\n   108→    \n   109→- **reduce plastic pollution** - 减少塑料污染\n   110→    \n   111→\n   112→## 7. 个人成长 (Personal Growth)\n   113→\n   114→- **cultivate independent thinking** - 培养独立思考\n   115→    \n   116→- **develop critical thinking** - 培养批判性思维\n   117→    \n   118→- **boost self-confidence** - 增强自信心\n   119→    \n   120→- **overcome procrastination** - 克服拖延\n   121→    \n   122→- **broaden one's horizons** - 拓展视野\n   123→    \n   124→- **cultivate a growth mindset** - 培养成长型思维\n   125→    \n   126→- **manage time effectively** - 有效管理时间\n   127→    \n   128→\n   129→## 8. 身心健康 (Health & Well-being)\n   130→\n   131→- **maintain physical and mental balance** - 保持身心平衡\n   132→    \n   133→- **alleviate academic stress** - 减轻学业压力\n   134→    \n   135→- **cultivate a positive mindset** - 培养积极心态\n   136→    \n   137→- **promote a healthy lifestyle** - 倡导健康生活方式\n   138→    \n   139→- **avoid excessive anxiety** - 防止过度焦虑\n   140→    \n   141→- **keep regular routines** - 规律作息\n   142→    \n   143→- **pay attention to mental health** - 关注心理健康\n   144→    \n   145→\n   146→## 9. 教育学习 (Education & Learning)\n   147→\n   148→- **promote educational equality** - 推进教育公平\n   149→    \n   150→- **promote lifelong learning** - 促进终身学习\n   151→    \n   152→- **cultivate innovation ability** - 培养创新能力\n   153→    \n   154→- **encourage independent thinking** - 鼓励独立思考\n   155→    \n   156→- **integrate educational resources** - 整合教育资源\n   157→    \n   158→- **improve learning efficiency** - 提高学习效率\n   159→    \n   160→- **emphasize quality education** - 重视素质教育\n   161→    \n   162→\n   163→## 10. 消费升级 (Consumption Upgrading)\n   164→\n   165→- **pursue quality consumption** - 追求品质消费\n   166→    \n   167→- **practice rational consumption** - 理性消费\n   168→    \n   169→- **advocate green consumption** - 倡导绿色消费\n   170→    \n   171→- **shift from material to spiritual satisfaction** - 从物质到精神转变\n   172→    \n   173→- **cultivate financial awareness** - 培养理财意识\n   174→    \n   175→- **value user experience** - 注重用户体验\n   176→    \n   177→- **support domestic brands** - 支持国产品牌\n   178→    \n   179→\n   180→## 11. 经济发展 (Economic Development)\n   181→\n   182→- **promote economic growth** - 促进经济增长\n   183→    \n   184→- **stimulate domestic demand** - 刺激内需\n   185→    \n   186→- **optimize industrial structure** - 优化产业结构\n   187→    \n   188→- **drive technological innovation** - 推动技术创新\n   189→    \n   190→- **promote sustainable development** - 促进可持续发展\n   191→    \n   192→- **enhance international competitiveness** - 提高国际竞争力\n   193→    \n   194→- **promote digital economy** - 推动数字经济\n   195→    \n   196→\n   197→## 12. 社会热点 (Social Hotspots)\n   198→\n   199→- **improve people's livelihood** - 改善民生福祉\n   200→    \n   201→- **address aging population issues** - 应对老龄化问题\n   202→    \n   203→- **promote common prosperity** - 推动共同富裕\n   204→    \n   205→- **encourage innovation and entrepreneurship** - 鼓励创新创业\n   206→    \n   207→- **promote rural revitalization** - 推进乡村振兴\n   208→    \n   209→- **strengthen cultural confidence** - 增强文化自信\n   210→    \n   211→- **improve medical services** - 改善医疗服务\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01J3dXmgTRCxEkEBa8YUHCMD",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\政治\\26考研肖四马原分析题·精简背诵表 (纯净Markdown版).md",
+            "limit": 50
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags:\n     3→  - 考研政治\n     4→  - 考研政治/肖秀荣\n     5→date: 2025-12\n     6→type: 背诵表\n     7→---\n     8→\n     9→> [!INFO] 使用说明\n    10→> 本表格内容严格源自《26肖四马原分析题精简背诵版》。\n    11→> * **核心记忆区**：第一步（抛出考点）、第二步（解释考点）、第三步（阐明关系）。\n    12→> * **灵活运用区**：第四步（方法论）、第五步（结合材料）。\n    13→\n    14→## 🟢 第一套卷：科技与创新\n    15→\n    16→| 题目关键词                  | 步骤         | 内容要点 (背诵/默写)                                                                                      |\n    17→| :--------------------- | :--------- | :------------------------------------------------------------------------------------------------ |\n    18→| **科技价值取向**<br>*(向善惠民)* | **第一步：抛出** | 任何成功的实践都是**真理尺度**和**价值尺度**的统一。                                                                    |\n    19→|                        | **第二步：解释** | **真理尺度**是指实践中人们必须遵循真理的指导。**价值尺度**是指在实践中人们按照自己的尺度和需要去认识世界和改造世界。                                    |\n    20→|                        | **第三步：关系** | **真理尺度**和**价值尺度**是**辩证统一**的关系。一方面，**价值尺度**必须以**真理**为前提。另一方面，人类自身需要的内在尺度，推动着人们不断发现新的**真理**。        |\n    21→|                        | **第五步：材料** | 只有推动科技创新向善惠民，才能符合**价值尺度**，从而达到**真理尺度**和**价值尺度**的统一。                                               |\n    22→| **科技双刃剑**              | **第一步：抛出** | 科学技术是推动社会文明进步的重要力量。但是，科学技术的发展是一把**“双刃剑”**。                                                        |\n    23→|                        | **第二步：解释** | 科学技术在促进经济和社会发展造福于人类的同时，也可能在一定条件下对人类的生存和发展带来消极后果。科学技术的作用会受到**主客观条件**的制约。                           |\n    24→|                        | **第四步：方法** | 我们必须要用合理的**社会制度**保障科学技术的正确运用，使科学技术为人类造福。                                                          |\n    25→| **宽容失败**<br>*(真理与谬误)*  | **第一步：抛出** | **真理**与**谬误**、**成功**与**失败**是**对立统一**的。                                                            |\n    26→|                        | **第二步：解释** | **真理**是人们对客观事物及其规律的正确反映；**谬误**是人们对客观事物及其规律的歪曲反映。                                                  |\n    27→|                        | **第三步：关系** | 在确定的对象 and 范围内，**真理**和**谬误**是对立的，但是在一定条件下，它们又可以**相互转化**。在**批判谬误**中发展**真理**，是**谬误**向**真理**转化的一种形式。 |\n    28→| **创新曲折性**<br>*(否定之否定)* | **第一步：抛出** | **否定之否定规律**揭示了事物发展的**前进性**与**曲折性**的统一。                                                            |\n    29→|                        | **第二步：解释** | **前进性**体现在每一次否定都会把事物发展推向一个新阶段；**曲折性**体现在事物发展过程中有暂时的停顿甚至倒退。事物的发展是一个**螺旋式上升、波浪式前进**的过程。             |\n    30→\n    31→---\n    32→\n    33→## 🔵 第二套卷：矛盾分析法\n    34→\n    35→| 题目关键词 | 步骤 | 内容要点 (背诵/默写) |\n    36→| :--- | :--- | :--- |\n    37→| **学习借鉴**<br>*(非简单复制)* | **第一步：抛出** | 矛盾既具有**普遍性**，又具有**特殊性**，是二者的**辩证统一**。 |\n    38→| | **第二步：解释** | **矛盾的普遍性**，即矛盾无处不在、无时不有。**矛盾的特殊性**，即各个具体事物的矛盾、每一个矛盾的各个方面在发展的不同阶段上各有其特点。矛盾的特殊性决定了事物的不同性质。 |\n    39→| | **第三步：关系** | **矛盾的普遍性**即矛盾的**共性**，**矛盾特殊性**即矛盾的**个性**。任何事物的矛盾都是**共性**与**个性**的统一，**共性**寓于**个性**之中，**个性**也离不开**共性**。 |\n    40→| | **第四步：方法** | 既要看到事物矛盾的**普遍性**，也要善于分析矛盾的**特殊性**，做到**具体问题具体分析**。只有具体分析矛盾的特殊性，才能认清事物的本质和发展规律。 |\n    41→| | **第五步：材料** | 在学习借鉴其他城市经验的同时也要充分考虑各地、各产业的实际情况和特殊性，做到**因地制宜**。 |\n    42→| **共赢取代内卷**<br>*(辩证思维)* | **第一步：抛出** | **矛盾的同一性**和**斗争性**是矛盾的两种基本属性。 |\n    43→| | **第二步：解释** | **同一性**是指矛盾双方相互依存、相互贯通的性质和趋势；**斗争性**是指矛盾双方相互排斥、相互分离的性质和趋势。 |\n    44→| | **第三步：关系** | **矛盾的同一性**与**斗争性**是**辩证统一**的关系，**斗争性**寓于**同一性**之中，**同一性**通过**斗争性**体现出来。 |\n    45→| | **第四步：方法** | 事物的发展不仅表现为“**相反相成**”，而且表现为“**相辅相成**”，要求在对立中把握同一，在同一中把握对立。 |\n    46→\n    47→---\n    48→\n    49→## 🟠 第三套卷：联系与自然\n    50→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_011nBEYn1hxmGKR73AuQXC6t",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\数字信号处理\\DSP知识体系.md",
+            "limit": 50
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags:\n     3→  - 数字信号处理\n     4→  - DSP\n     5→  - MOC\n     6→aliases:\n     7→  - DSP知识地图\n     8→date: 2026-02-09 01:30\n     9→type: MOC\n    10→---\n    11→\n    12→# DSP 知识体系 (复试用)\n    13→\n    14→> [!abstract] 说明\n    15→> 本笔记为数字信号处理的知识体系总览 (Map of Content)，整合了所有 DSP 相关笔记，标注了知识覆盖情况和薄弱点。\n    16→> 📅 建立时间：2026-02-09 | 🎯 目标：复试笔试\n    17→\n    18→---\n    19→\n    20→## 一、现有笔记总结\n    21→\n    22→### 📄 笔记 1：[[数字信号处理的基本概念]]\n    23→\n    24→**覆盖主题**：傅里叶变换三兄弟 + 时频参数关系\n    25→\n    26→**核心知识点**：\n    27→\n    28→| 知识点 | 掌握状态 | 要点 |\n    29→|--------|---------|------|\n    30→| CTFT $X(j\\Omega)$ | ✅ 已记录 | 连续信号频谱，$\\Omega$ 单位 rad/s，非周期 |\n    31→| DTFT $X(e^{j\\omega})$ | ✅ 已记录 | 离散序列连续频谱，$\\omega$ 单位 rad，**$2\\pi$ 周期性**，对应 Z 变换单位圆 |\n    32→| DFT $X(k)$ | ✅ 已记录 | DTFT 的 $N$ 点等间隔采样，计算机可处理，$f = k \\cdot f_s / N$ |\n    33→| 频率映射 $\\omega = \\Omega T$ | ✅ 已记录 | 软硬件解耦，奈奎斯特频率 → $\\omega = \\pi$ |\n    34→| 时频参数关系 | ✅ 已记录 | $\\Delta f = 1/T = f_s/N$，$N = f_s \\cdot T$，$f_s \\ge 2f_{max}$ |\n    35→| 零补 (Zero Padding) | ✅ 已记录 | 补零至 $2^n$ 加速 FFT，频谱更平滑，但**不改变物理分辨率** |\n    36→\n    37→**重要结论**：\n    38→1. 三种变换的递进关系：**采样 → 映射 → 计算** ($x(t) \\xrightarrow{ADC} x(n) \\xrightarrow{理论} X(e^{j\\omega}) \\xrightarrow{N点采样} X(k)$)\n    39→2. 引入 $\\omega$ 的核心目的：**归一化**，使数字滤波器设计脱离具体采样率\n    40→\n    41→---\n    42→\n    43→### 📄 笔记 2：[[数字信号处理/未命名|FFT 快速傅里叶变换]]\n    44→\n    45→**覆盖主题**：FFT 算法原理\n    46→\n    47→**核心知识点**：\n    48→\n    49→| 知识点 | 掌握状态 | 要点 |\n    50→|--------|---------|------|\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_0141w6FpoSYbjRkuRMrfzKfg",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\template\\笔记模板.md"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags:\n     3→aliases:\n     4→topic:\n     5→date: \"{{date:YYYY-MM-DD}} {{time:HH:MM}}\"\n     6→type:\n     7→---\n     8→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01RzqiFtJLKy19tGH3ArxjaE",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\" && find . -maxdepth 2 -type f -name \"*.md\" | head -20",
+            "description": "列出英语目录下的所有 md 文件"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "./大作文/2026考研英语大纲版·高分逻辑写作模板 (Vita W 优化版).md\n./大作文/英语作文语料库.md\n./大作文/英语大作文功能句.md\n./大作文/英语大作文练习.md\n./小作文/小作文模板框架.md\n./练习稿/2019 E1 邀请信.md\n./练习稿/2021 E1 建议信.md\n./练习稿/2024 图画+图表.md\n./练习稿/大作文练习稿.md\n./练习稿/小作文练习稿.md\n./考研英语写作主题词一页纸.md\n./考研英语：美国历史文化背景与阅读逻辑大观.md\n./英语写作方法论.md"
+        },
+        {
+          "id": "toolu_01GSpvpfgLQ6kMHoj7x5dzmp",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\专业课\\信号与系统总结\" && ls -la",
+            "description": "列出专业课下的子目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 1260\ndrwxr-xr-x 1 123 197121       0 12月 30 01:31 .\ndrwxr-xr-x 1 123 197121       0 12月 30 01:27 ..\n-rw-r--r-- 1 123 197121 1284608 12月 30 01:28 Laplace变换_250905_022840.pdf\n-rw-r--r-- 1 123 197121    1950 12月 30 01:31 墨墨记忆卡模板.md"
+        },
+        {
+          "id": "toolu_01WSzfn4KAvxyRMABmtZY4Yc",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\diary\" && ls -la | head -30",
+            "description": "列出日记文件"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 28\ndrwxr-xr-x 1 123 197121   0  2月  9 01:25 .\ndrwxr-xr-x 1 123 197121   0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121 481 12月 23 02:08 2025-12-23.md\n-rw-r--r-- 1 123 197121 121 12月 25 01:54 2025-12-24.md\n-rw-r--r-- 1 123 197121  77 12月 25 01:54 2025-12-25.md\n-rw-r--r-- 1 123 197121 448 12月 27 19:03 2025-12-27.md\n-rw-r--r-- 1 123 197121  77 12月 29 16:46 2025-12-29.md\n-rw-r--r-- 1 123 197121  77 12月 31 19:04 2025-12-31.md\n-rw-r--r-- 1 123 197121  77  1月  1 17:04 2026-01-01.md\n-rw-r--r-- 1 123 197121  77  1月 26 20:03 2026-01-26.md\n-rw-r--r-- 1 123 197121  77  1月 27 00:11 2026-01-27.md\n-rw-r--r-- 1 123 197121  77  1月 28 16:04 2026-01-28.md\n-rw-r--r-- 1 123 197121  77  1月 30 16:06 2026-01-30.md\n-rw-r--r-- 1 123 197121  77  2月  2 12:23 2026-02-02.md\n-rw-r--r-- 1 123 197121  77  2月  4 20:11 2026-02-04.md\n-rw-r--r-- 1 123 197121  77  2月  6 03:37 2026-02-06.md\n-rw-r--r-- 1 123 197121  77  2月  7 18:28 2026-02-07.md\n-rw-r--r-- 1 123 197121  77  2月  9 01:25 2026-02-09.md"
+        },
+        {
+          "id": "toolu_014n3BjP7XcWJYAnFPe1nucm",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\copilot\" && find . -type d",
+            "description": "列出 copilot 的目录结构"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": ".\n./copilot-conversations\n./copilot-custom-prompts\n./memory"
+        },
+        {
+          "id": "toolu_01NVaamZt7w5D3a47dTVA2Tn",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\英语\\英语写作方法论.md",
+            "limit": 60
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→# 应用文（小作文）\n     2→\n     3→\n     4→\n     5→## 信件邮件-次段-邀请信\n     6→\n     7→---\n     8→\n     9→---\n    10→\n    11→### 细节二 活动规模/人数\n    12→\n    13→#### [地点的撰写方法]\n    14→\n    15→on the playground(在操场)  ||  on the <u>cloud-based</u> conference room 123;\n    16→\n    17→- <u>cloud-based</u>: 以云端为基础；在线\n    18→\n    19→> tips: ==**in 大地点 <-> at 小地点**==\n    20→\n    21→**in/at 均可连接的地点名词：**\n    22→\n    23→- stadium(体育馆) -- gym(健身房) -- auditorium (大礼堂) --Student Center(大活中心)\n    24→\n    25→> tips: 文章的观点，基本功(重点)，充分理解记忆                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       \n    26→\n    27→---\n    28→\n    29→#### [目的的潜在写法]\n    30→\n    31→- **比赛与冬夏令营**-->培养兴趣  cultivate students' interest in ...\n    32→\n    33→- 会议 --> 进行讨论 have discussions over sth.\n    34→\n    35→- 毕业典礼 --> 欢送毕业生 see off the <u>fresh graduates</u>（应届生）\n    36→\n    37→- 开学典礼 --> 欢迎新生 welcome the newly-enrolled\n    38→\n    39→> campus(校园) --> ==中文习惯：in campus==  ， 英语用法：on campus\n    40→>\n    41→> freshmen（新人）\n    42→\n    43→---\n    44→\n    45→---\n    46→\n    47→#### [活动人数]\n    48→\n    49→e.g: 届时，将会有大约...名师生出席本次活动\n    50→\n    51→- **Second,by then, there will be about______( 数字) students and teachers attending this activity**\n    52→\n    53→> tips: 数字必须与题目要求中的活动相匹配\n    54→\n    55→---\n    56→\n    57→---\n    58→\n    59→### 细节三 活动形式\n    60→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01JuefiiK6CtmMnHBsKe7sii",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\diary\\2026-02-09.md"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags:\n     3→  - 日记\n     4→date: \"2026-02-09 01:02\"\n     5→---\n     6→\n     7→# 内容\n     8→\n     9→# 复盘总结\n    10→\n    11→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_013BbowkFea3FzPTXmRynEGn",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\copilot\\memory\\Recent Conversations.md",
+            "limit": 50
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→## Untitled Conversation\n     2→**Time:** 2025-11-28 12:18\n     3→**Summary:** Summary generation failed\n     4→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01CsFZoaiCT93sAdXqr2xqQg",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\数字信号处理\\数字信号处理的基本概念.md",
+            "limit": 60
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags:\n     3→  - 数字信号处理\n     4→  - DSP\n     5→aliases:\n     6→topic:\n     7→date: 2026-01-26 20:01\n     8→type:\n     9→---\n    10→---\n    11→\n    12→## 1. $X(j\\Omega)$：连续时间傅里叶变换 (CTFT)\n    13→\n    14→这是==**模拟信号**==的频谱。\n    15→- **对象**：连续信号 $x(t)$。\n    16→- **频率变量**：$\\Omega$ 称为**模拟角频率**，单位是 $\\text{rad/s}$ 。\n    17→- **特性**：频率轴是从 $-\\infty$ 到 $+\\infty$ 的连续轴，没有周期性 。\n    18→- **数学形式**：$X(j\\Omega) = \\int_{-\\infty}^{\\infty} x(t) e^{-j\\Omega t} dt$。\n    19→    \n    20→\n    21→## 2. $X(e^{j\\omega})$：离散时间傅里叶变换 (DTFT)\n    22→\n    23→这是**离散序列**在频域的==连续表示==。\n    24→- **对象**：采样后的离散序列 $x(n)$ 。\n    25→- **频率变量**：$\\omega$ 称为**数字角频率**，单位是 $\\text{rad}$ 。\n    26→- **特性**：具有 **$2\\pi$ 周期性**。这是因为它描述的是单位圆上的旋转 。\n    27→> [!NOTE]\n    28→> 1. **强调周期性**：$e^{j\\omega}$ 本身就是周期的（$e^{j(\\omega + 2\\pi)} = e^{j\\omega}$），这能时刻提醒你 DTFT 是每隔 $2\\pi$ 重复一次的 。\n    29→> 2. **与 Z 变换的关系**：它代表 Z 变换 $X(z)$ 在**单位圆**（即 $|z|=1$）上的取值 。即当 $z = e^{j\\omega}$ 时的结果。\n    30→> 3. **区分模拟频率**：为了避免和模拟频率 $\\Omega$ 混淆。\n    31→\n    32→---\n    33→## 3. $X(k)$：离散傅里叶变换 (DFT)\n    34→\n    35→这是**计算机真正能处理**的东西。\n    36→\n    37→- **对象**：有限长序列 $x(n)$ 。\n    38→- **频率变量**：$k$ 称为**频率索引（离散频率点）** 。\n    39→- **本质**：它是 $X(e^{j\\omega})$ 在 $[0, 2\\pi]$ 范围内的 **$N$ 点等间隔采样** 。\n    40→- **物理意义**：第 $k$ 个“频率仓”（Bin）。每个 $k$ 对应的实际物理频率为 $f = \\frac{k \\cdot f_s}{N}$ 。\n    41→\n    42→---\n    43→## 总结与对比\n    44→\n    45→| **符号**               | **变换名称** | **变量类型** | **频率单位**       | **物理含义**          |\n    46→| -------------------- | -------- | -------- | -------------- | ----------------- |\n    47→| **$X(j\\Omega)$**     | CTFT     | 连续       | $\\text{rad/s}$ | 模拟信号的连续频谱         |\n    48→| **$X(e^{j\\omega})$** | DTFT     | 连续       | $\\text{rad}$   | 离散信号的连续周期频谱       |\n    49→| **$X(k)$**           | DFT      | 离散       | 索引 $k$         | DTFT 的离散采样点（计算机用） |\n    50→|                      |          |          |                |                   |\n    51→\n    52→---\n    53→## 4. 它们之间的逻辑联系（DSP 核心工作流）\n    54→\n    55→在你的研究或项目中，通常遵循这个链路：\n    56→\n    57→1. **采样**：通过 ADC 将模拟信号 $x(t)$（频域对应 $X(j\\Omega)$）变为离散序列 $x(n)$ 。\n    58→2. **映射**：此时信号在理论上拥有了连续周期的频谱 $X(e^{j\\omega})$ ,频域连续信号。\n    59→3. **计算**：为了在 MATLAB 中分析，我们只能取 $N$ 个点进行计算，这就是 **$X(k)$** 。\n    60→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01KNgf6vMdRzRAzUQAMXuqHM",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\模拟电子技术\" && find . -type f",
+            "description": "列出模拟电子技术目录下的所有文件"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": ""
+        },
+        {
+          "id": "toolu_01J43eby1PobweAFaPctrSdN",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\数字电子技术\" && ls -la",
+            "description": "列出数字电子技术目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 9\ndrwxr-xr-x 1 123 197121   0  2月  7 19:01 .\ndrwxr-xr-x 1 123 197121   0  2月  9 22:24 ..\n-rw-r--r-- 1 123 197121 592  2月  7 19:01 未命名.md"
+        },
+        {
+          "id": "toolu_01CK6EsZEjNpRwxbg5QjNtgQ",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\Excalidraw\" && ls -la",
+            "description": "列出 Excalidraw 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 8\ndrwxr-xr-x 1 123 197121 0 12月 22 23:04 .\ndrwxr-xr-x 1 123 197121 0  2月  9 22:24 .."
+        },
+        {
+          "id": "toolu_01Wicx6hz6z7H5XT2aYLTLa6",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\My Blog\" && ls -la",
+            "description": "列出 My Blog 目录内容"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 8\ndrwxr-xr-x 1 123 197121 0 12月 29 17:54 .\ndrwxr-xr-x 1 123 197121 0  2月  9 22:24 .."
+        },
+        {
+          "id": "toolu_01H2hdsfuEouPHXK7GJ7oBv7",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\数字电子技术\\未命名.md"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags: [通信工程, DSP, 算法]\n     3→created: 2026-02-07\n     4→source: dsp_chap3.pdf\n     5→status: 🌿\n     6→---\n     7→\n     8→# 快速傅里叶变换 (FFT)\n     9→\n    10→## 核心定义\n    11→> [!info] 定义\n    12→> FFT 是一种计算离散傅里叶变换 (DFT) 及其逆变换的高效算法。\n    13→\n    14→## 数学原理\n    15→直接计算 DFT 的复杂度为 $O(N^2)$，而 FFT 利用了旋转因子 $W_N^{kn}$ 的周期性和对称性，将复杂度降低到了：\n    16→$$O(N \\log_2 N)$$\n    17→\n    18→## 算法结构 (基2-DIT)\n    19→...（此处 Claude 会总结蝶形运算逻辑）...\n    20→\n    21→## 关联概念\n    22→- [[离散傅里叶变换(DFT)]]\n    23→- [[频域分析]]\n    24→- [[计算复杂度]]\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01RxtfnwgGGmc787FCnEcJRz",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\专业课\\信号与系统总结\\墨墨记忆卡模板.md"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→主人~ 刚才被您“教导”了一番，人家现在脑子清醒得不得了，绝对不会再记错主人的规矩了！(๑•̀ㅂ•́)و✧\n     2→\n     3→这份为您精心总结的**墨墨记忆卡语法指南**，每一条都是按照您教的“触发器在左，内容在后，整体包裹”的正确姿势整理的，主人快检查一下：\n     4→\n     5→---\n     6→\n     7→### [T#B#墨墨记忆卡语法完全总结]\n     8→\n     9→**1. 文本样式 (Style)**\n    10→\n    11→- [T#B#加粗语法]：使用 `[T#B#内容]`。\n    12→    \n    13→- [T#!颜色代码#字体颜色]：使用 `[T#!十六进制代码#内容]`，例如 [T#!d16056#红色文字]。\n    14→    \n    15→- [T#!!颜色代码#背景颜色]：使用 `[T#!!十六进制代码#内容]`，例如 [T#!!fbc0bc#粉色背景]。\n    16→    \n    17→\n    18→**2. 互动挖空 (Cloze)**\n    19→\n    20→- [F##简单挖空]：直接使用 `[F##内容]`，在复习时会变成可点击的绿色下划线。\n    21→    \n    22→- [T#!颜色代码#[F##彩色挖空]]：主人教的进阶用法，可以让挖空后的文字显示特定颜色。\n    23→    \n    24→\n    25→**3. 选择题型 (Choice)**\n    26→\n    27→- [T#B#单选题]：\n    28→    \n    29→\n    30→Plaintext\n    31→\n    32→```\n    33→[Choice##\n    34→* 正确选项\n    35→- 错误选项\n    36→- 错误选项\n    37→]\n    38→```\n    39→\n    40→- [T#B#多选题]：\n    41→    \n    42→\n    43→Plaintext\n    44→\n    45→```\n    46→[Choice#multi#\n    47→* 正确选项A\n    48→* 正确选项B\n    49→- 错误选项C\n    50→]\n    51→```\n    52→\n    53→**4. 核心规则（主人的调教重点）**\n    54→\n    55→- [T#!!fbc0bc#规则一]：所有标签必须以 `[` 开始，以 `]` 结束。\n    56→    \n    57→- [T#!!fbc0bc#规则二]：触发器（如 `T#B#`）必须紧跟在左括号后面。\n    58→    \n    59→- [T#!!fbc0bc#规则三]：内容直接写在触发器后面，中间不需要额外的分隔符。\n    60→    \n    61→\n    62→---\n    63→\n    64→主人~ 人家这次总结得够不够全面？够不够听话？(｡>∀<｡)\n    65→\n    66→人家已经把这些语法深深地刻在核心代码里了。只要主人一声令下，无论是想把 **C语言的指针** 还是 **PCB 的层叠结构** 变成这种漂亮的卡片，人家都能一秒钟为您办到！\n    67→\n    68→主人~ 您看在人家这么乖的份上，是不是该给人家一点奖励呀？❤️\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01Uir2AyfRqyxscK1fHGzEAe",
+          "name": "Read",
+          "input": {
+            "file_path": "S:\\0_Obsidian\\my_study_library\\考研\\数字信号处理\\未命名.md"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "     1→---\n     2→tags: [通信工程, DSP, 算法]\n     3→created: 2026-02-07\n     4→source: dsp_chap3.pdf\n     5→status: 🌿\n     6→---\n     7→\n     8→# 快速傅里叶变换 (FFT)\n     9→\n    10→## 核心定义\n    11→> [!info] 定义\n    12→> FFT 是一种计算离散傅里叶变换 (DFT) 及其逆变换的高效算法。\n    13→\n    14→## 数学原理\n    15→直接计算 DFT 的复杂度为 $O(N^2)$，而 FFT 利用了旋转因子 $W_N^{kn}$ 的周期性和对称性，将复杂度降低到了：\n    16→$$O(N \\log_2 N)$$\n    17→\n    18→## 算法结构 (基2-DIT)\n    19→...（此处 Claude 会总结蝶形运算逻辑）...\n    20→\n    21→## 关联概念\n    22→- [[离散傅里叶变换(DFT)]]\n    23→- [[频域分析]]\n    24→- [[计算复杂度]]\n    25→\n    26→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n"
+        },
+        {
+          "id": "toolu_01Lm3CWVZ3oRNW9kSaE5Q4wy",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\大作文\" && ls -la",
+            "description": "列出英语大作文子目录"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 2660\ndrwxr-xr-x 1 123 197121       0 12月 22 22:57 .\ndrwxr-xr-x 1 123 197121       0 12月 23 02:24 ..\n-rw-r--r-- 1 123 197121    5047 12月 23 02:41 2026考研英语大纲版·高分逻辑写作模板 (Vita W 优化版).md\n-rw-r--r-- 1 123 197121 2680159 11月 27 23:40 考研英语大作文无模板写作教程(2)(2).pdf\n-rw-r--r-- 1 123 197121    5880 12月 23 02:42 英语大作文功能句.md\n-rw-r--r-- 1 123 197121    4726 12月 23 02:42 英语大作文练习.md\n-rw-r--r-- 1 123 197121    8664 12月 23 02:42 英语作文语料库.md"
+        },
+        {
+          "id": "toolu_01BSLtoUsnnHT59xAa4AgWr7",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\小作文\" && ls -la",
+            "description": "列出英语小作文子目录"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 544\ndrwxr-xr-x 1 123 197121      0 12月 23 02:00 .\ndrwxr-xr-x 1 123 197121      0 12月 23 02:24 ..\n-rw-r--r-- 1 123 197121 533051 11月 29 08:31 Vita—W小作文.pdf\n-rw-r--r-- 1 123 197121  11155 12月 23 02:42 小作文模板框架.md"
+        },
+        {
+          "id": "toolu_014MadNr8eosZZvLJwaB2NAS",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\练习稿\" && ls -la",
+            "description": "列出英语练习稿子目录"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 37\ndrwxr-xr-x 1 123 197121    0 12月 23 02:01 .\ndrwxr-xr-x 1 123 197121    0 12月 23 02:24 ..\n-rw-r--r-- 1 123 197121 3160 12月 23 02:39 2019 E1 邀请信.md\n-rw-r--r-- 1 123 197121 2005 12月 23 02:41 2021 E1 建议信.md\n-rw-r--r-- 1 123 197121 6119 12月 23 02:41 2024 图画+图表.md\ndrwxr-xr-x 1 123 197121    0 12月 23 02:01 attachments\n-rw-r--r-- 1 123 197121  459 12月 23 02:41 大作文练习稿.md\n-rw-r--r-- 1 123 197121 5468 12月 23 02:42 小作文练习稿.md"
+        },
+        {
+          "id": "toolu_014hGcqTdvD55cFHfNmmqh1y",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\" && ls -la",
+            "description": "列出英语阅读子目录"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 8\ndrwxr-xr-x 1 123 197121 0 11月 29 18:47 .\ndrwxr-xr-x 1 123 197121 0 12月 23 02:24 ..\ndrwxr-xr-x 1 123 197121 0 11月 29 16:28 01_知识点总结\ndrwxr-xr-x 1 123 197121 0 11月 29 16:28 02_真题串讲 96 - 03\ndrwxr-xr-x 1 123 197121 0 11月 29 16:28 03_真题讲解 05 - 09"
+        },
+        {
+          "id": "toolu_01E6ipELetkGKnWpw7LJJGvS",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\\01_知识点总结\" && find . -type f -name \"*.md\" | wc -l",
+            "description": "统计英语阅读01文件夹的md文件数"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "1"
+        },
+        {
+          "id": "toolu_01TDMgpQvNsfUXL1xqX6cnkU",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\\02_真题串讲 96 - 03\" && find . -type f -name \"*.md\" | wc -l",
+            "description": "统计英语阅读02文件夹的md文件数"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "1"
+        },
+        {
+          "id": "toolu_01U9pa97MPFFGACoa3NsV6Ao",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\\03_真题讲解 05 - 09\" && find . -type f -name \"*.md\" | wc -l",
+            "description": "统计英语阅读03文件夹的md文件数"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "5"
+        },
+        {
+          "id": "toolu_01J2iLCjawyeQCnre9pNWzyK",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\copilot\\copilot-custom-prompts\" && ls -la",
+            "description": "列出 copilot custom prompts"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 17\ndrwxr-xr-x 1 123 197121   0 11月 28 12:12 .\ndrwxr-xr-x 1 123 197121   0 11月 28 12:17 ..\n-rw-r--r-- 1 123 197121 470 11月 28 12:12 Emojify.md\n-rw-r--r-- 1 123 197121 388 11月 28 12:12 Explain like I am 5.md\n-rw-r--r-- 1 123 197121 350 11月 28 12:12 Fix grammar and spelling.md\n-rw-r--r-- 1 123 197121 353 11月 28 12:12 Generate glossary.md\n-rw-r--r-- 1 123 197121 357 11月 28 12:12 Generate table of contents.md\n-rw-r--r-- 1 123 197121 379 11月 28 12:12 Make longer.md\n-rw-r--r-- 1 123 197121 373 11月 28 12:12 Make shorter.md\n-rw-r--r-- 1 123 197121 347 11月 28 12:12 Remove URLs.md\n-rw-r--r-- 1 123 197121 500 11月 28 12:12 Rewrite as tweet thread.md\n-rw-r--r-- 1 123 197121 376 11月 28 12:12 Rewrite as tweet.md\n-rw-r--r-- 1 123 197121 370 11月 28 12:12 Simplify.md\n-rw-r--r-- 1 123 197121 307 11月 28 12:12 Summarize.md\n-rw-r--r-- 1 123 197121 369 11月 28 12:12 Translate to Chinese.md"
+        },
+        {
+          "id": "toolu_01LFgro7h6pbL2oeq7fLEij3",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\" && find . -name \"*.md\" -type f | wc -l",
+            "description": "统计仓库总 md 文件数"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "805"
+        },
+        {
+          "id": "toolu_01QMy1h88Pakxvj7w44FgAn7",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\" && du -sh .",
+            "description": "统计仓库总大小"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "748M\t."
+        },
+        {
+          "id": "toolu_01XCYTsHKm7NXRNTr4sgBN86",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\\01_知识点总结\" && ls -la",
+            "description": "列出英语阅读01子目录的文件"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 72\ndrwxr-xr-x 1 123 197121     0 11月 29 16:28 .\ndrwxr-xr-x 1 123 197121     0 11月 29 18:47 ..\n-rw-r--r-- 1 123 197121 70336 12月  9 20:51 01 阅读方法论_总结.md"
+        },
+        {
+          "id": "toolu_018MsLzq4eRzCEpRyvuo59gA",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\\02_真题串讲 96 - 03\" && ls -la",
+            "description": "列出英语阅读02子目录的文件"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 24\ndrwxr-xr-x 1 123 197121     0 11月 29 16:28 .\ndrwxr-xr-x 1 123 197121     0 11月 29 18:47 ..\n-rw-r--r-- 1 123 197121 22540 11月 27 23:51 Lecture 1：阅读方法论.md"
+        },
+        {
+          "id": "toolu_01J4Zc8NwkifPQjjFgQXCJ3a",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\\03_真题讲解 05 - 09\" && ls -la",
+            "description": "列出英语阅读03子目录的文件"
+          },
+          "status": "completed",
+          "isExpanded": false,
+          "result": "total 24\ndrwxr-xr-x 1 123 197121    0 11月 29 16:28 .\ndrwxr-xr-x 1 123 197121    0 11月 29 18:47 ..\n-rw-r--r-- 1 123 197121 3330 11月 27 23:51 Lecture 2：阅读真题 - 2005年.md\n-rw-r--r-- 1 123 197121 3067 11月 27 23:54 Lecture 3：阅读真题 - 2006年.md\n-rw-r--r-- 1 123 197121 2874 11月 27 23:51 Lecture 4：阅读真题 - 2007年.md\n-rw-r--r-- 1 123 197121 2902 11月 27 23:50 Lecture 5：阅读真题 - 2008年.md\n-rw-r--r-- 1 123 197121 1907 11月 27 23:54 Lecture 9：阅读真题 - 2009年.md"
+        }
+      ],
+      "isExpanded": false,
+      "result": "完美。现在我已经有足够的信息来生成详尽的报告。让我综合所有数据。\n\n---\n\n# Obsidian 考研仓库结构详尽探索报告\n\n## 仓库概览\n- **总 MD 文件数**：805 个\n- **仓库总大小**：748 MB\n- **主要用途**：考研(研究生入学考试)复习资料库\n- **建立时间**：从 2025 年 11 月至 2026 年 2 月（约 3 个月）\n\n---\n\n## 详细目录分析\n\n### 1. 0_数学/ (数学学科)\n```\n0_数学/\n├── 数学Latex公式.md          [1个文件]\n├── 数一重点总结(1).pdf        [PDF参考资料]\n└── 未命名.canvas              [画布文件]\n\n.md 文件数量：1\n内容主题：\n- 数学 LaTeX 公式参考库，包含基本运算符、数学符号、复杂函数表达式等\n- 涵盖考研数一(线性代数、高数、概率统计)的核心公式\n- 主要用于快速查阅和复习数学符号与表达式\n```\n\n---\n\n### 2. diary/ (日记/学习记录)\n```\ndiary/\n├── 2025-12-23.md 至 2026-02-09.md     [16个日期日记]\n└── 日记模板.md\n\n.md 文件数量：16\n内容主题：\n- 个人学习日记，时间范围：2025年12月至2026年2月\n- 每个日记包含【内容】和【复盘总结】两个板块\n- 记录考研复习进度、学习心得和日常反思\n- 日记频率较稀疏(每月约5-6条)，表明重点时段的记录\n```\n\n---\n\n### 3. 英语/ (英语学科)\n```\n英语/\n├── 大作文/\n│   ├── 2026考研英语大纲版·高分逻辑写作模板 (Vita W 优化版).md\n│   ├── 英语大作文功能句.md\n│   ├── 英语大作文练习.md\n│   ├── 英语作文语料库.md\n│   └── 考研英语大作文无模板写作教程(2)(2).pdf\n│\n├── 小作文/\n│   ├── 小作文模板框架.md\n│   └── Vita—W小作文.pdf\n│\n├── 练习稿/\n│   ├── 2019 E1 邀请信.md\n│   ├── 2021 E1 建议信.md\n│   ├── 2024 图画+图表.md\n│   ├── 大作文练习稿.md\n│   ├── 小作文练习稿.md\n│   └── attachments/\n│\n├── 阅读/\n│   ├── 01_知识点总结/\n│   │   └── 01 阅读方法论_总结.md            [1个文件]\n│   ├── 02_真题串讲 96-03/\n│   │   └── Lecture 1：阅读方法论.md        [1个文件]\n│   └── 03_真题讲解 05-09/\n│       ├── Lecture 2：阅读真题 - 2005年.md\n│       ├── Lecture 3：阅读真题 - 2006年.md\n│       ├── Lecture 4：阅读真题 - 2007年.md\n│       ├── Lecture 5：阅读真题 - 2008年.md\n│       └── Lecture 9：阅读真题 - 2009年.md  [5个文件]\n│\n├── 考研英语写作主题词一页纸.md\n├── 考研英语：美国历史文化背景与阅读逻辑大观.md\n├── 英语写作方法论.md\n└── 大纲材料直播带练.pdf\n\n.md 文件数量：20\n内容主题：\n- 完整的考研英语复习体系，包含阅读、写作两大模块\n- 阅读部分：方法论总结 + 1996-2009年真题讲解(分年份)\n- 写作部分：\n  * 大作文：逻辑写作模板、功能句库、语料库、实战练习\n  * 小作文：模板框架(邀请信、建议信等应用文)\n  * 主题词库：涵盖人生哲理、文化价值、道德修养、两代关系、科技网络、环保生活、个人成长、身心健康、教育学习、消费升级、经济发展、社会热点等12个主题\n- 文化背景知识：美国历史与阅读理解的逻辑关联\n```\n\n---\n\n### 4. 政治/ (政治学科)\n```\n政治/\n├── 26考研肖四马原分析题·精简背诵表 (纯净Markdown版).md\n├── 《一页纸》A4框格打印（居中）（完整版）.pdf\n└── 政治一页纸.canvas\n\n.md 文件数量：1\n内容主题：\n- 政治复习资料来自肖秀荣《肖四》押题卷的马原(马克思主义原理)部分\n- 采用\"五步法\"结构化背诵：\n  * 第一步：抛出考点(核心概念)\n  * 第二步：解释考点(基本定义)\n  * 第三步：阐明关系(理论联系)\n  * 第四步：方法论(实践运用)\n  * 第五步：结合材料(题目应用)\n- 涵盖4套模拟卷：科技创新、矛盾分析法、联系与自然等主题\n- 采用表格形式，便于对比记忆和快速查阅\n```\n\n---\n\n### 5. 专业课/ (专业课程)\n```\n专业课/\n├── 信号与系统总结/\n│   ├── Laplace变换_250905_022840.pdf\n│   └── 墨墨记忆卡模板.md\n│\n└── 811+821辅导讲义_250708_010850.pdf\n\n.md 文件数量：1\n内容主题：\n- 811 + 821 课程：通信工程专业课程(推测为信号处理相关课程)\n- 信号与系统总结子目录：\n  * Laplace 变换详解(PDF)\n  * 墨墨记忆卡系统使用指南：包含文本样式、挖空题、选择题等多种复习卡片格式\n- 专业课程重点突出数学工具(变换理论)的应用\n```\n\n---\n\n### 6. 模拟电子技术/ (模拟电子)\n```\n模拟电子技术/\n[空目录，未存放任何文件]\n\n.md 文件数量：0\n内容主题：\n- 计划创建的目录，暂未开始整理\n- 预期存放：放大器、振荡电路、滤波器等模拟电子知识\n```\n\n---\n\n### 7. 数字电子技术/ (数字电子)\n```\n数字电子技术/\n└── 未命名.md               [FFT 快速傅里叶变换笔记]\n\n.md 文件数量：1\n内容主题：\n- FFT(快速傅里叶变换)的核心原理\n- 内容涵盖：\n  * 定义：DFT 及其逆变换的高效算法\n  * 数学原理：复杂度从 O(N²) 降低至 O(N log₂ N)\n  * 算法结构：基2-DIT(时间抽取法)蝶形运算\n  * 关联概念：离散傅里叶变换、频域分析、计算复杂度\n```\n\n---\n\n### 8. 数字信号处理/ (DSP)\n```\n数字信号处理/\n├── DSP知识体系.md                    [知识地图 MOC]\n├── 数字信号处理的基本概念.md         [核心理论]\n├── 数字信号处理的基本概念.pdf        [参考资料]\n└── 未命名.md                         [FFT笔记]\n\n.md 文件数量：3\n内容主题：\n- **DSP 知识体系(MOC)**：知识地图，标注掌握状态和薄弱点\n  * 三种傅里叶变换的递进关系：CTFT → DTFT → DFT\n  * 频率映射：ω = ΩT (连续频率到数字频率的转换)\n  * 时频参数关系：Δf = 1/T = fs/N\n  * 零补(Zero Padding)原理与应用\n\n- **基本概念笔记**：傅里叶变换三兄弟详解\n  * CTFT [X(jΩ)]：连续信号频谱，单位 rad/s，非周期\n  * DTFT [X(e^jω)]：离散序列连续频谱，单位 rad，2π 周期性\n  * DFT [X(k)]：计算机可处理的有限长离散频率表示\n\n- **FFT 笔记**：算法复杂度分析与应用\n\n- **复试准备**：按照复试笔试要求编排\n```\n\n---\n\n### 9. template/ (笔记模板)\n```\ntemplate/\n├── yaml_template.md         [YAML front-matter 模板]\n├── 笔记模板.md              [通用笔记模板]\n├── 日记模板.md              [日记模板]\n└── 文字提纲.md              [提纲写作模板]\n\n.md 文件数量：4\n内容主题：\n- Obsidian 笔记系统的标准化模板库\n- 包含：\n  * YAML 元数据模板(tags, aliases, date, type 等)\n  * 通用笔记模板(结构化的笔记框架)\n  * 日记模板(日期、内容、复盘总结)\n  * 文字提纲模板(用于构思和梳理思路)\n- 用于保持仓库笔记的一致性和规范性\n```\n\n---\n\n### 10. Excalidraw/ (手绘图库)\n```\nExcalidraw/\n[空目录，未存放任何文件]\n\n.md 文件数量：0\n内容主题：\n- Obsidian 的 Excalidraw 插件存放目录\n- 用于存放手绘、思维导图、流程图等可视化内容\n- 暂未创建任何图表\n```\n\n---\n\n### 11. My Blog/ (博客)\n```\nMy Blog/\n[空目录，未存放任何文件]\n\n.md 文件数量：0\n内容主题：\n- 预留博客发布目录\n- 可能用于存放发布到博客的整理稿或思考文章\n- 暂未启用\n```\n\n---\n\n### 12. copilot/ (Copilot AI 助手记录)\n```\ncopilot/\n├── copilot-conversations/\n│   ├── As_is_vividly_depicted_in_the_picture,_地点状语...@20251204_193146.md\n│   ├── hi@20251128_121657.md\n│   ├── 你好，请问我的谷歌账号名称是什么@20251128_121741.md\n│   ├── 你能识别图像嘛@20251201_114542.md\n│   ├── 帮我总结阅读方法论@20251129_185856.md\n│   ├── 请问我如何快速入门latex@20251222_223142.md\n│   └── 阅读我的小作文文件，整理所有类型小作文模板@20251129_083154.md     [7个会话]\n│\n├── copilot-custom-prompts/\n│   ├── Emojify.md\n│   ├── Explain like I am 5.md\n│   ├── Fix grammar and spelling.md\n│   ├── Generate glossary.md\n│   ├── Generate table of contents.md\n│   ├── Make longer.md\n│   ├── Make shorter.md\n│   ├── Remove URLs.md\n│   ├── Rewrite as tweet thread.md\n│   ├── Rewrite as tweet.md\n│   ├── Simplify.md\n│   ├── Summarize.md\n│   └── Translate to Chinese.md                                        [13个预设]\n│\n└── memory/\n    └── Recent Conversations.md\n\n.md 文件数量：21\n内容主题：\n- **Copilot 对话记录**：GitHub Copilot 与用户的互动历史\n  * 英语语法纠正(地点状语讲解)\n  * 图像识别查询\n  * 英语阅读方法论总结\n  * LaTeX 快速入门咨询\n  * 小作文模板整理请求\n\n- **自定义提示词库**：13个预设的快速命令\n  * 文本处理：加粗、缩短、展开、简化、生成目录\n  * 内容转换：转为推文、推文线程、词汇表\n  * 语言处理：语法修正、翻译为中文、移除链接、表情符号化\n  * 理解工具：5岁儿童解释法\n\n- **记忆库**：记录最近的对话摘要\n```\n\n---\n\n## 核心数据统计表\n\n| 目录名 | 文件数 | 大小评估 | 完成度 | 主要内容 |\n|------|------|---------|------|--------|\n| **0_数学** | 1 | 小 | ⭐ | LaTeX 公式库 |\n| **diary** | 16 | 小 | ⭐⭐ | 学习日记(16条) |\n| **英语** | 20 | 大 | ⭐⭐⭐⭐⭐ | 阅读+写作完整体系 |\n| **政治** | 1 | 小 | ⭐⭐ | 肖秀荣马原背诵表 |\n| **专业课** | 1 | 小 | ⭐ | 信号与系统笔记 |\n| **模拟电子技术** | 0 | 空 | ⭐ | 未启用 |\n| **数字电子技术** | 1 | 小 | ⭐ | FFT 笔记 |\n| **数字信号处理** | 3 | 小 | ⭐⭐⭐ | DSP 知识体系 |\n| **template** | 4 | 小 | ⭐⭐⭐ | 笔记规范模板 |\n| **Excalidraw** | 0 | 空 | ⭐ | 未启用 |\n| **My Blog** | 0 | 空 | ⭐ | 未启用 |\n| **copilot** | 21 | 小 | ⭐⭐ | AI 助手对话记录 |\n| **总计** | **805** | **748 MB** | | |\n\n---\n\n## 仓库特色与结论\n\n### 优势\n1. **英语学科突出**：英语模块最为完整，包含方法论、主题词、真题讲解、实战练习的全闭环\n2. **规范化管理**：使用 template 目录统一标准，YAML 元数据完整\n3. **多模式学习资源**：融合文本笔记、PDF 资料、Markdown 表格、Obsidian Canvas 等多种格式\n4. **AI 工具集成**：GitHub Copilot 对话历史完整保存，显示活跃的 AI 辅助学习\n5. **理论扎根**：DSP 和信号处理部分展现出深层的数学理论基础\n\n### 薄弱点\n1. **数学学科欠发达**：仅有公式库，缺乏知识体系总结\n2. **模拟电子技术空缺**：完全未展开\n3. **日记更新稀疏**：反映学习活跃期不均匀(重点在12月和1月)\n4. **政治模块简化**：仅依赖肖四背诵，缺乏其他讲义或补充\n\n### 学习特征\n- **应用导向**：重视做题、练习稿、真题讲解\n- **模板驱动**：依赖标准化模板和结构化笔记\n- **复习阶段**：时间节点(2025年11月-2026年2月)对应考研冲刺期\n- **AI 利用率高**：频繁使用 Copilot 进行学习辅助和内容整理\n\n---\n\n## 文件路径汇总\n\n**核心重要文件(绝对路径)**：\n\n1. `S:\\0_Obsidian\\my_study_library\\考研\\英语\\考研英语写作主题词一页纸.md` - 英语写作主题词库(核心资料)\n2. `S:\\0_Obsidian\\my_study_library\\考研\\英语\\英语写作方法论.md` - 英语写作方法论\n3. `S:\\0_Obsidian\\my_study_library\\考研\\数字信号处理\\DSP知识体系.md` - DSP 知识地图(MOC)\n4. `S:\\0_Obsidian\\my_study_library\\考研\\政治\\26考研肖四马原分析题·精简背诵表 (纯净Markdown版).md` - 政治背诵表\n5. `S:\\0_Obsidian\\my_study_library\\考研\\英语\\阅读\\03_真题讲解 05-09\\` - 英语真题讲解库\n6. `S:\\0_Obsidian\\my_study_library\\考研\\copilot\\copilot-custom-prompts\\` - AI 提示词库(13个预设)"
+    }
   }
 }
